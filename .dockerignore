@@ -1,0 +1,15 @@
+# Archivos relacionados con Git
+.git
+.gitignore
+
+# Archivos de Docker
+.dockerignore
+Dockerfile
+
+# Wrapper de Maven (opcional)
+mvnw
+mvnw.cmd
+.mvn/
+
+# Archivos innecesarios para producción
+README.md

@@ -11,13 +11,21 @@ services:
       - "5432:5432"
 
   pgadmin:
-      image: dpage/pgadmin4
-      container_name: my-pgadmin
-      restart: always
-      ports:
-        - "8081:80"
-      environment:
-        PGADMIN_DEFAULT_EMAIL: admin@example.com
-        PGADMIN_DEFAULT_PASSWORD: admin123
-      depends_on:
-        - db
+    image: dpage/pgadmin4
+    container_name: my-pgadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    depends_on:
+      - db
+
+  app:
+    build: .
+    container_name: rest-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
